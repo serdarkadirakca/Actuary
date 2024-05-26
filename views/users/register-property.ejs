@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<%- include('../partials/head') %>
+<body class="layout-light side-menu">
+   <%- include('../partials/header') %>
+   <main class="main-content">
+      <%- include('../partials/sidebar') %>
+      <div class="contents">
+
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-lg-12">
+                  <div class="breadcrumb-main">
+                     <h4 class="text-capitalize breadcrumb-title">Register Property Policy</h4>
+                     <div class="breadcrumb-action justify-content-center flex-wrap">
+                        <nav aria-label="breadcrumb">
+                           <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="/dashboard"><i class="uil uil-estate"></i>Dashboard</a></li>
+                              <li class="breadcrumb-item"><a href="#">Policies</a></li>
+                              <li class="breadcrumb-item"><a href="/policy-property">Property Policy</a></li>
+                              <li class="breadcrumb-item active" aria-current="page">Register Property Policy</li>
+                           </ol>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+
+
+               <div class="col-lg-6">
+               
+                  <div class="card card-horizontal card-default card-md mb-4">
+                     <div class="card-header">
+                        <h6>Personal & Policy Informations</h6>
+                     </div>
+                     <div class="card-body py-md-30">
+                        <div class="horizontal-form">
+                           <form method="post">
+                              <div class="form-group row mb-25">
+                                 <div class="col-sm-3 d-flex aling-items-center">
+                                    <label for="insured" class=" col-form-label color-dark fs-14 fw-500 align-center">Insured</label>
+                                 </div>
+                                 <div class="col-sm-9">
+                                    <select class="form-control px-15" name="insured">
+                                       <option>Select Insured</option>
+                                       <% for( let i = 0; i < insuredList.length; i++ ) { %>
+                                          <option value="<%= insuredList[i]._id %>"><%= insuredList[i].name %></option>
+                                       <% } %>
+                                       
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="form-group row mb-25">
+                                 <div class="col-sm-3 d-flex aling-items-center">
+                                    <label for="company" class=" col-form-label color-dark fs-14 fw-500 align-center">Insurance Company</label>
+                                 </div>
+                                 <div class="col-sm-9">
+                                    <select class="form-control px-15" name="company">
+                                       <option>Select Company</option>
+                                       <% for( let i = 0; i < companyList.length; i++ ) { %>
+                                          <option value="<%= companyList[i]._id %>"><%= companyList[i].name %></option>
+                                       <% } %>
+                                    </select>
+                                 </div>
+                              </div>
+                              <% if (isAdmin && isManager) { %>
+                                 <div class="form-group row mb-25">
+                                    <div class="col-sm-3 d-flex aling-items-center">
+                                       <label for="user" class=" col-form-label color-dark fs-14 fw-500 align-center">User</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                       <select class="form-control px-15" name="user">
+                                          <option>Select User</option>
+                                          <% for( let i = 0; i < userList.length; i++ ) { %>
+                                             <option value="<%= userList[i]._id %>"><%= userList[i].employee.name %></option>
+                                          <% } %>
+                                       </select>
+                                    </div>
+                                 </div>
+                                 <% } %>
+                              <div class="form-group row mb-25">
+                                 <div class="col-sm-3 d-flex aling-items-center">
+                                    <label for="deed" class=" col-form-label color-dark fs-14 fw-500 align-center">Deed No.</label>
+                                 </div>
+                                 <div class="col-sm-9">
+                                    <input type="deed" class="form-control ih-medium ip-gray radius-xs b-light px-15" 
+                                    name="deed" placeholder="12468423">
+                                 </div>
+                              </div>
+                              <div class="form-group row mb-25">
+                                 <div class="col-sm-3 d-flex aling-items-center">
+                                    <label for="address" class=" col-form-label color-dark fs-14 fw-500 align-center">Address</label>
+                                 </div>
+                                 <div class="col-sm-9">
+                                    <input type="address" class="form-control ih-medium ip-gray radius-xs b-light px-15" 
+                                    name="address" placeholder="Ümraniye,Atatürk,Akdeniz St.No:158">
+                                 </div>
+                              </div>
+                              <div class="form-group row mb-25">
+                                 <div class="col-sm-3 d-flex aling-items-center">
+                                    <label for="price" class="col-form-label color-dark fs-14 fw-500 align-center">Price</label>
+                                 </div>
+                                 <div class="col-sm-9">
+                                    <input type="price" class="form-control ih-medium ip-gray radius-xs b-light px-15" 
+                                    name="price" required>
+                                 </div>
+                              </div>
+                              <div class="form-group row mb-0">
+                                 <div class="layout-button mt-25">
+                                    <button type="reset" class="btn btn-default btn-squared btn-light px-20">Reset</button>
+                                    <button type="submit" class="btn btn-primary btn-default btn-squared px-30">Register</button>
+                                 </div>
+                              </div>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+            </div>
+            </div>
+         </div>
+      <%- include('../partials/modal') %>
+      <%- include('../partials/footer') %>
+   </main>
+   <%- include('../partials/script') %>
+</body>
+</html>

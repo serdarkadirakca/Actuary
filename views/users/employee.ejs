@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<%- include('../partials/head') %>
+<body class="layout-light side-menu">
+   <%- include('../partials/header') %>
+   <main class="main-content">
+      <%- include('../partials/sidebar') %>
+      <div class="contents">
+
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-lg-12">
+                  <div class="breadcrumb-main">
+                     <h4 class="text-capitalize breadcrumb-title">Employees</h4>
+                     <div class="breadcrumb-action justify-content-center flex-wrap">
+                        <nav aria-label="breadcrumb">
+                           <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="/dashboard"><i class="uil uil-estate"></i>Dashboard</a></li>
+                              <li class="breadcrumb-item"><a href="#">Transactions</a></li>
+                              <li class="breadcrumb-item active" aria-current="page">Employees</li>
+                           </ol>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-lg-12">
+                  <div class="userDatatable orderDatatable sellerDatatable global-shadow mb-30 py-30 px-sm-30 px-20 radius-xl w-100">
+                     <div class="project-top-wrapper d-flex justify-content-between flex-wrap mb-25 mt-n10">
+                        <div class="d-flex align-items-center flex-wrap justify-content-center">
+                           <div class="project-search order-search  global-shadow mt-10">
+                              <form method="post" class="order-search__form">
+                                 <img src="static/img/svg/search.svg" alt="search" class="svg">
+                                 <input class="form-control me-sm-2 border-0 box-shadow-none" type="search" name="query" 
+                                 placeholder="Filter by Name" aria-label="Search">
+                              </form>
+                           </div>
+                        </div>
+                        <div class="content-center">
+                           <div class="button-group m-0 mt-sm-0 mt-10 order-button-group">
+                              <a href="/register-employee"><button type="button" class="btn btn-sm btn-primary me-0 radius-md">
+                                 <i class="la la-plus"></i> Add Employee</button></a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="table-responsive">
+                        <table class="table mb-0 table-borderless border-0">
+                           <thead>
+                              <tr class="userDatatable-header">
+                                 <th scope="col">
+                                    <span class="userDatatable-title">Name</span>
+                                 </th>
+                                 <th scope="col">
+                                    <span class="userDatatable-title">Nationality</span>
+                                 </th>
+                                 <th scope="col">
+                                    <span class="userDatatable-title">T.C or Passport ID</span>
+                                 </th>
+                                 <th scope="col">
+                                    <span class="userDatatable-title">Birthdate</span>
+                                 </th>
+                                 <th scope="col">
+                                    <span class="userDatatable-title float-end">Email</span>
+                                 </th>
+                                 <th scope="col" class="text-end">
+                                    <span class="userDatatable-title ">Phone Number</span>
+                                 </th>
+                                 <th scope="col" class="text-end">
+                                    <span class="userDatatable-title ">Agency</span>
+                                 </th>
+                                 <th scope="col" class="text-end">
+                                    <span class="userDatatable-title ">Job</span>
+                                 </th>
+                                 <th scope="col" class="text-end">
+                                    <span class="userDatatable-title ">Salary</span>
+                                 </th>
+                                 <th scope="col" class="text-end">
+                                    <span class="userDatatable-title ">Actions</span>
+                                 </th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              
+                              <% for( let i = 0; i < employee.length; i++ ) { %>
+                                 <tr>
+                                    <td>
+                                       <div class="orderDatatable-title">
+                                          <%= employee[i].name %>
+                                       </div>
+                                    </td>
+                                    <td>
+                                       <div class="orderDatatable-title">
+                                          <%= employee[i].nationality %>
+                                       </div>
+                                    </td>
+                                    <td>
+                                       <div class="orderDatatable-title">
+                                          <%= employee[i].passport %>
+                                       </div>
+                                    </td>
+                                    <td>
+                                       <div class="orderDatatable-title">
+                                          <%= employee[i].birthdate %>
+                                       </div>
+                                    </td>
+                                    <td>
+                                       <div class="orderDatatable-title float-end">
+                                          <%= employee[i].email %>
+                                       </div>
+                                    </td>
+                                    <td>
+                                       <div class="orderDatatable-title float-end">
+                                          <%= employee[i].phone %>
+                                       </div>
+                                    </td>
+                                    <td>
+                                       <div class="orderDatatable-title">
+                                          <%= employee[i].agency.name %>
+                                       </div>
+                                    </td>
+                                    <td>
+                                       <div class="orderDatatable-title">
+                                          <%= employee[i].job %>
+                                       </div>
+                                    </td>
+                                    <td>
+                                       <div class="orderDatatable-title">
+                                          <%= employee[i].salary %> TL
+                                       </div>
+                                    </td>
+                                    <td>
+                                       <form method="post">
+                                       <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-end">
+                                          <li>
+                                             <a href="/edit-employee<%= employee[i]._id %>" class="edit">
+                                                <i class="uil uil-edit"></i>
+                                             </a>
+                                          </li>
+                                          <li>
+                                             <button class="delete" name="delete" value="<%= employee[i]._id %>">
+                                             <a href="" class="remove">
+                                                <i class="uil uil-trash-alt"></i>
+                                             </a>
+                                          </button>
+                                          </li>
+                                       </ul>
+                                    </form>
+                                    </td>
+                                 </tr>
+                              <% } %>
+                           </tbody>
+                        </table>
+                     </div>
+                     <div class="d-flex justify-content-end mt-15 pt-25 border-top">
+                        <!-- <nav class="dm-page ">
+                           <ul class="dm-pagination d-flex">
+                              <li class="dm-pagination__item">
+                                 <a href="#" class="dm-pagination__link pagination-control"><span class="la la-angle-left"></span></a>
+                                 <a href="#" class="dm-pagination__link"><span class="page-number">1</span></a>
+                                 <a href="#" class="dm-pagination__link active"><span class="page-number">2</span></a>
+                                 <a href="#" class="dm-pagination__link"><span class="page-number">3</span></a>
+                                 <a href="" class="dm-pagination__link pagination-control"><span class="page-number">...</span></a>
+                                 <a href="#" class="dm-pagination__link"><span class="page-number">5</span></a>
+                                 <a href="#" class="dm-pagination__link pagination-control"><span class="la la-angle-right"></span></a>
+                                 <a href="#" class="dm-pagination__option">
+                                 </a>
+                              </li>
+                           </ul>
+                        </nav> -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         </div>
+      <%- include('../partials/modal') %>
+      <%- include('../partials/footer') %>
+   </main>
+   <%- include('../partials/script') %>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<%- include('../partials/head') %>
+<body class="layout-light side-menu">
+   <%- include('../partials/header') %>
+   <main class="main-content">
+      <%- include('../partials/sidebar') %>
+      <div class="contents">
+         <div class="min-vh-100 content-center">
+            <div class="error-page text-center">
+               <div class="error-page__title">
+                  <% if (!isAdmin && !isManager) { %>
+                     <p>Restricted Page</p><p style="font-size: 28px;"> </p><br>
+                     <p style="font-size: 25px; color: #625274;">Insurers cannot enter this page</p>
+                  <% } else if(!isAdmin && isManager){ %>
+                  <p>Restricted Page</p><p style="font-size: 28px;"> </p><br>
+                  <p style="font-size: 25px; color: #625274;">Managers and insurers cannot enter this page</p>
+                  <% } %>
+               </div>
+            </div>
+         </div>
+      </div>
+      <%- include('../partials/modal') %>
+      <%- include('../partials/footer') %>
+   </main>
+   <%- include('../partials/script') %>
+</body>
+</html>

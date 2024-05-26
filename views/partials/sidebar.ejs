@@ -1,0 +1,205 @@
+<div class="sidebar-wrapper">
+    <div class="sidebar sidebar-collapse" id="sidebar">
+       <div class="sidebar__menu-group">
+         <% if (isAdmin && isManager) { %>
+            <ul class="sidebar_nav ">
+               <li>
+                 <a href="/dashboard" class=<%= title == "Dashboard" ? "active" : " "%>>
+                     <span class="nav-icon uil uil-create-dashboard"></span>
+                     <span class="menu-text">Dashboard</span>
+                  </a>
+                  <% if (title=="Register Agency" || title=="Register Company" || title=="Register Employee" || title=="Register Insured" || title=="Register Expense") { %>
+                  <li class="has-child open"> 
+                  <% } else {%>
+                     <li class="has-child">
+                     <% }%>
+                     <a href="#">
+                        <span class="nav-icon uil uil-edit"></span>
+                        <span class="menu-text">Registrations</span>
+                     </a>
+                     <ul>
+                       <li><a href="/register-agency" class=<%= title == "Register Agency" ? "active" : " "%>>Register Agency</a></li>
+                       <li><a href="/register-company" class=<%= title == "Register Company" ? "active" : " "%>>Register Company</a></li>
+                       <li><a href="/register-employee" class=<%= title == "Register Employee" ? "active" : " "%>>Register Employee</a></li>
+                       <li><a href="/register-insured" class=<%= title == "Register Insured" ? "active" : " "%>>Register Insured</a></li>
+                       <li><a href="/register-expense" class=<%= title == "Register Expense" ? "active" : " "%>>Register Expense</a></li>
+                     </ul>
+                        </li>
+                        <% if (title=="Agency" || title=="Company" || title=="Employee" || title=="Insured" || title=="Edit Agency" || title=="Edit Company" || title=="Edit Employee" || title=="Edit Insured") { %>
+                           <li class="has-child open"> 
+                           <% } else {%>
+                              <li class="has-child">
+                              <% }%>
+                              <% if (title=="Edit Agency" || title=="Edit Company" || title=="Edit Employee" || title=="Edit Insured") { %>
+                          <a href="#" class="active">
+                              <% } else {%>
+                                 <a href="#">
+                                 <% } %>
+                             <img src="static/img/svg/repeat.svg" alt="repeat" class="svg nav-icon">
+                             <span class="menu-text">Transactions</span>
+                          </a>
+                          <ul>
+                             <li><a href="/agency" class=<%= title == "Agency" ? "active" : " "%>>Agencies</a></li>
+                             <li><a href="/company" class=<%= title == "Company" ? "active" : " "%>>Companies</a></li>
+                             <li><a href="/employee" class=<%= title == "Employee" ? "active" : " "%>>Employees</a></li>
+                             <li><a href="/insured" class=<%= title == "Insured" ? "active" : " "%>>Insureds</a></li>
+                          </ul>
+                             </li>
+                             <% if (title=="Casco Policy" || title=="Traffic Policy" || title=="DASK Policy" || title=="Property Policy" || title=="Health Policy" || title=="Other Policy") { %>
+                                 <li class="has-child open"> 
+                                    <a href="#">
+                              <% } else if(title=="Register Casco" || title=="Register Traffic" || title=="Register DASK" || title=="Register Property" || title=="Register Health" || title=="Register Other" || title=="Edit Policy") {%>
+                                 <li class="has-child open"> 
+                                    <a href="#" class="active">
+                              <% } else {%>
+                                 <li class="has-child">
+                                    <a href="#">
+                                 <% }%>
+                          
+                             <span class="nav-icon uil uil-bag"></span>
+                             <span class="menu-text">Policies</span>
+                          </a>
+                          <ul>
+                             <li><a href="/policy-casco" class=<%= title == "Casco Policy" ? "active" : " "%>>Casco Policy</a></li>
+                             <li><a href="/policy-traffic" class=<%= title == "Traffic Policy" ? "active" : " "%>>Traffic Policy</a></li>
+                             <li><a href="/policy-dask" class=<%= title == "DASK Policy" ? "active" : " "%>>DASK Policy</a></li>
+                             <li><a href="/policy-property" class=<%= title == "Property Policy" ? "active" : " "%>>Property Policy</a></li>
+                             <li><a href="/policy-health" class=<%= title == "Health Policy" ? "active" : " "%>>Health Policy</a></li>
+                             <li><a href="/policy-other" class=<%= title == "Other Policy" ? "active" : " "%>>Other Policy</a></li>
+                          </ul>
+                             </li>
+                  
+                             <% if (title=="Income Report" || title=="Expense Report" || title=="Profit Report" || title=="Company Report" || title=="Salary Report" || title=="Insured Report") { %>
+                              <li class="has-child open"> 
+                              <% } else {%>
+                                 <li class="has-child">
+                                 <% }%>
+                           <a href="#">
+                              <span class="nav-icon uil uil-clipboard-notes"></span>
+                              <span class="menu-text">Reports</span>
+                           </a>
+                           <ul>
+                              <li><a href="/report-income" class=<%= title == "Income Report" ? "active" : " "%>>Income Report</a></li>
+                              <li><a href="/report-expense" class=<%= title == "Expense Report" ? "active" : " "%>>Expense Report</a></li>
+                              <li><a href="/report-profit" class=<%= title == "Profit Report" ? "active" : " "%>>Profit Report</a></li>
+                              <li><a href="/report-company" class=<%= title == "Company Report" ? "active" : " "%>>Company Report</a></li>
+                              <li><a href="/report-salary" class=<%= title == "Salary Report" ? "active" : " "%>>Salary Report</a></li>
+                              <li><a href="/report-insured" class=<%= title == "Insured Report" ? "active" : " "%>>Insured Report</a></li>
+                           </ul>
+                        </li>
+                        <li>
+                          <a href="/users" class=<%= title == "Users" ? "active" : " "%>>
+                             <span class="nav-icon uil uil-users-alt"></span>
+                             <span class="menu-text">Users</span>
+                          </a>
+                       </li>
+                  <!-- <li>
+                     <a href="/faq">
+                        <span class="nav-icon uil uil-question-circle"></span>
+                        <span class="menu-text">FAQ</span>
+                     </a>
+                  </li> -->
+            </ul>
+         <% } else if (!isAdmin && isManager) {%> 
+            <ul class="sidebar_nav ">
+               <li>
+                 <a href="/dashboard" class=<%= title == "Dashboard" ? "active" : " "%>>
+                     <span class="nav-icon uil uil-create-dashboard"></span>
+                     <span class="menu-text">Dashboard</span>
+                  </a>
+               </li>
+               <li>
+                  <a href="/register-expense" class=<%= title == "Register Expense" ? "active" : " "%>>
+                      <span class="nav-icon uil uil-usd-circle"></span>
+                      <span class="menu-text">Register Expense</span>
+                   </a>
+                </li>
+               <li>
+                  <a href="/employee" class=<%= title == "Employee" ? "active" : " "%>>
+                      <span class="nav-icon uil uil-users-alt"></span>
+                      <span class="menu-text">Employee</span>
+                   </a>
+                </li>
+                <li>
+                  <a href="/insured" class=<%= title == "Insured" ? "active" : " "%>>
+                      <span class="nav-icon uil uil-user-circle"></span>
+                      <span class="menu-text">Insured</span>
+                   </a>
+                </li>
+                             <% if (title=="Casco Policy" || title=="Traffic Policy" || title=="DASK Policy" || title=="Property Policy" || title=="Health Policy" || title=="Other Policy" || title=="Edit Policy") { %>
+                                 <li class="has-child open"> 
+                              <% } else {%>
+                                 <li class="has-child">
+                                 <% }%>
+                                 <a href="#">
+                                 
+                          
+                             <span class="nav-icon uil uil-bag"></span>
+                             <span class="menu-text">Policies</span>
+                          </a>
+                          <ul>
+                           <li><a href="/policy-casco" class=<%= title == "Casco Policy" ? "active" : " "%>>Casco Policy</a></li>
+                           <li><a href="/policy-traffic" class=<%= title == "Traffic Policy" ? "active" : " "%>>Traffic Policy</a></li>
+                           <li><a href="/policy-dask" class=<%= title == "DASK Policy" ? "active" : " "%>>DASK Policy</a></li>
+                           <li><a href="/policy-property" class=<%= title == "Property Policy" ? "active" : " "%>>Property Policy</a></li>
+                           <li><a href="/policy-health" class=<%= title == "Health Policy" ? "active" : " "%>>Health Policy</a></li>
+                           <li><a href="/policy-other" class=<%= title == "Other Policy" ? "active" : " "%>>Other Policy</a></li>
+                          </ul>
+                             </li>
+                             <li>
+                              <a href="/users" class=<%= title == "Users" ? "active" : " "%>>
+                                 <span class="nav-icon uil uil-users-alt"></span>
+                                 <span class="menu-text">Users</span>
+                              </a>
+                           </li>
+                 <!-- <li>
+                      <a href="/faq">
+                        <span class="nav-icon uil uil-question-circle"></span>
+                        <span class="menu-text">FAQ</span>
+                     </a>
+                  </li> -->
+            </ul>
+         <% } else{%> 
+            <ul class="sidebar_nav ">
+               <li>
+                 <a href="/dashboard" class=<%= title == "Dashboard" ? "active" : " "%>>
+                     <span class="nav-icon uil uil-create-dashboard"></span>
+                     <span class="menu-text">Dashboard</span>
+                  </a>
+                        <li>
+                           <a href="/insured" class=<%= title == "Insured" ? "active" : " "%>>
+                           <span class="nav-icon uil uil-users-alt"></span>
+                           <span class="menu-text">Insureds</span>
+                        </a>
+                           </li>
+                             <% if (title=="Casco Policy" || title=="Traffic Policy" || title=="DASK Policy" || title=="Property Policy" || title=="Health Policy" || title=="Other Policy"
+                           || title=="Register Casco" || title=="Register Traffic" || title=="Register DASK" || title=="Register Property" || title=="Register Health" || title=="Register Other"
+                           || title=="Edit Policy") { %>
+                              <li class="has-child open"> 
+                              <% } else {%>
+                                 <li class="has-child">
+                                 <% }%>
+                          <a href="#">
+                             <span class="nav-icon uil uil-bag"></span>
+                             <span class="menu-text">Policies</span>
+                          </a>
+                          <ul>
+                             <li><a href="/policy-casco" class=<%= title == "Casco Policy" ? "active" : " "%>>Casco Policy</a></li>
+                             <li><a href="/policy-traffic" class=<%= title == "Traffic Policy" ? "active" : " "%>>Traffic Policy</a></li>
+                             <li><a href="/policy-dask" class=<%= title == "DASK Policy" ? "active" : " "%>>DASK Policy</a></li>
+                             <li><a href="/policy-property" class=<%= title == "Property Policy" ? "active" : " "%>>Property Policy</a></li>
+                             <li><a href="/policy-health" class=<%= title == "Health Policy" ? "active" : " "%>>Health Policy</a></li>
+                             <li><a href="/policy-other" class=<%= title == "Other Policy" ? "active" : " "%>>Other Policy</a></li>
+                          </ul>
+                             </li>
+                  <!-- <li>
+                     <a href="/faq">
+                        <span class="nav-icon uil uil-question-circle"></span>
+                        <span class="menu-text">FAQ</span>
+                     </a>
+                  </li> -->
+            </ul>
+         <% } %>
+       </div>
+    </div>
+ </div>

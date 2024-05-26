@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<%- include('../partials/head') %>
+<body class="layout-light side-menu">
+   <%- include('../partials/header') %>
+   <main class="main-content">
+      <%- include('../partials/sidebar') %>
+      <div class="contents">
+         <div class="mb-12 t-thead-bg">
+            <div class="container-fluid">
+               <div class="row ">
+                  <div class="col-lg-12">
+                     <div class="breadcrumb-main">
+                        <h4 class="text-capitalize breadcrumb-title">Dashboard</h4>
+                        <div class="breadcrumb-action justify-content-center flex-wrap">
+                           <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                                 <li class="breadcrumb-item"><a href="/dashboard"><i class="uil uil-estate"></i>Dashboard</a></li>
+                              </ol>
+                           </nav>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xxl-6 mb-12">
+                     <div class="card border-0 px-12">
+                        <div class="card-header px-0 border-0" style="margin-left: 15px;">
+                           <h6>Policy Types</h6>
+                        </div>
+                        <div class="card-body p-0">
+                           <div class="tab-content">
+                              <div class="tab-pane fade active show" id="t_selling-month" role="tabpanel" aria-labelledby="t_selling-month-tab">
+                                 <div class="selling-table-wrap">
+                                    <div class="table-responsive">
+                                       <table class="table table--default table-borderless ">
+                                          <thead>
+                                             <tr>
+                                                <th>Type of Policies</th>
+                                                <th>Number of Policies</th>
+                                                <th>Company Share</th>
+                                                <th>Income</th>
+                                                <th>Total Price</th>
+                                             </tr>
+                                          </thead>
+                                          <tbody>
+                                             <% for( let i = 0; i < policyTypes.length; i++ ) { %>  
+                                             <tr>
+                                                <td>
+                                                   <div class="selling-product-img d-flex align-items-center">
+                                                      
+                                                      <span style="margin-left: 15px;"><%= policyTypes[i] %></span>
+                                                   </div>
+                                                </td>
+                                                <td><%= countPolicy[i] %></td>
+                                                <td><%= sharePolicy[i] %> TL</td>
+                                                <td><%= incomePolicy[i] %> TL</td>
+                                                <td><%= pricePolicy[i] %> TL</td>
+                                             </tr>
+                                             <% } %>
+                                          </tbody>
+                                       </table>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                  </div>
+                  <div class="col-xxl-6 mb-12">
+
+                     <div class="card border-0 px-12">
+                        <div class="card-header px-0 border-0" style="margin-left: 15px;">
+                           <h6>Companies</h6>
+                        </div>
+                        <div class="card-body p-0">
+                           <div class="tab-content">
+                              <div class="tab-pane fade active show" id="t_selling-month333" role="tabpanel" aria-labelledby="t_selling-month333-tab">
+                                 <div class="selling-table-wrap selling-table-wrap--source">
+                                    <div class="table-responsive">
+                                       <table class="table table--default table-borderless">
+                                          <thead>
+                                             <tr>
+                                                <th>Company Name</th>
+                                                <th>Number of Policies</th>
+                                                <th>Company Share</th>
+                                                <th>Income</th>
+                                                <th>Total Price</th>
+                                             </tr>
+                                          </thead>
+                                          <tbody>
+                                             <% for( let i = 0; i < company.length; i++ ) { %>  
+                                             <tr>
+                                                <td>
+                                                   <div class="selling-product-img d-flex align-items-center">
+                                                      
+                                                      <span style="margin-left: 15px;"><%= company[i] %></span>
+                                                   </div>
+                                                </td>
+                                                <td><%= countCompany[i] %></td>
+                                                <td><%= shareCompany[i] %> TL</td>
+                                                <td><%= incomeCompany[i] %> TL</td>
+                                                <td><%= priceCompany[i] %> TL</td>
+                                             </tr>
+                                             <% } %>
+                                          </tbody>
+                                       </table>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <%- include('../partials/modal') %>
+      <%- include('../partials/footer') %>
+   </main>
+   <%- include('../partials/script') %>
+</body>
+</html>

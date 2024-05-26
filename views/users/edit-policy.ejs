@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<%- include('../partials/head') %>
+<body class="layout-light side-menu">
+   <%- include('../partials/header') %>
+   <main class="main-content">
+      <%- include('../partials/sidebar') %>
+      <div class="contents">
+
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-lg-12">
+                  <div class="breadcrumb-main">
+                     <h4 class="text-capitalize breadcrumb-title">Edit
+                     <% if (casco) { %>
+                        Casco
+                     <% } else if(traffic){ %>
+                        Traffic
+                     <% } else if(dask){ %>
+                        DASK
+                     <% } else if(property){ %>
+                        Property
+                     <% } else if(health){ %>
+                        Health
+                     <% } else if(other){ %>
+                        Other
+                     <% } %>
+                     Policy</h4>
+                     <div class="breadcrumb-action justify-content-center flex-wrap">
+                        <nav aria-label="breadcrumb">
+                           <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="/dashboard"><i class="uil uil-estate"></i>Dashboard</a></li>
+                              <li class="breadcrumb-item"><a href="#">Policies</a></li>
+                              <li class="breadcrumb-item active" aria-current="page">Edit Policy</li>
+                           </ol>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+
+
+                  <div class="col-lg-6">
+                  
+                     <div class="card card-horizontal card-default card-md mb-4">
+                        <div class="card-header">
+                           <h6>Change Personal & Policy Informations</h6>
+                        </div>
+                        <div class="card-body py-md-30">
+                           <div class="horizontal-form">
+                              <form method="post">
+                                 <div class="form-group row mb-25">
+                                    <div class="col-sm-3 d-flex aling-items-center">
+                                       <label for="insured" class=" col-form-label color-dark fs-14 fw-500 align-center">Insured</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                       <select class="form-control px-15" name="insured">
+                                          <option value="">Select Insured</option>
+                                          <% for( let i = 0; i < insuredList.length; i++ ) { %>
+                                             <option value="<%= insuredList[i]._id %>"><%= insuredList[i].name %></option>
+                                          <% } %>
+                                          
+                                       </select>
+                                    </div>
+                                 </div>
+                                 <div class="form-group row mb-25">
+                                    <div class="col-sm-3 d-flex aling-items-center">
+                                       <label for="company" class=" col-form-label color-dark fs-14 fw-500 align-center">Insurance Company</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                       <select class="form-control px-15" name="company">
+                                          <option value="">Select Company</option>
+                                          <% for( let i = 0; i < companyList.length; i++ ) { %>
+                                             <option value="<%= companyList[i]._id %>"><%= companyList[i].name %></option>
+                                          <% } %>
+                                       </select>
+                                    </div>
+                                 </div>
+                                 <% if (casco) { %>
+                                    <div class="form-group row mb-25">
+                                       <div class="col-sm-3 d-flex aling-items-center">
+                                          <label for="plate" class="col-form-label color-dark fs-14 fw-500 align-center">Vehicle Plate</label>
+                                       </div>
+                                       <div class="col-sm-9">
+                                          <input type="plate" class="form-control ih-medium ip-gray radius-xs b-light px-15" 
+                                          name="plate" placeholder="<%= casco.plate %>">
+                                       </div>
+                                    </div>
+                                    <div class="form-group row mb-25">
+                                       <div class="col-sm-3 d-flex aling-items-center">
+                                          <label for="chassis" class="col-form-label color-dark fs-14 fw-500 align-center">Vehicle Chassis No.</label>
+                                       </div>
+                                       <div class="col-sm-9">
+                                          <input type="chassis" class="form-control ih-medium ip-gray radius-xs b-light px-15" 
+                                          name="chassis" placeholder="<%= casco.chassis %>">
+                                       </div>
+                                    </div>
+                                    <% } else if (traffic) { %>
+                                       <div class="form-group row mb-25">
+                                          <div class="col-sm-3 d-flex aling-items-center">
+                                             <label for="plate" class="col-form-label color-dark fs-14 fw-500 align-center">Vehicle Plate</label>
+                                          </div>
+                                          <div class="col-sm-9">
+                                             <input type="plate" class="form-control ih-medium ip-gray radius-xs b-light px-15" 
+                                             name="plate" placeholder="<%= traffic.plate %>">
+                                          </div>
+                                       </div>
+                                       <div class="form-group row mb-25">
+                                          <div class="col-sm-3 d-flex aling-items-center">
+                                             <label for="chassis" class="col-form-label color-dark fs-14 fw-500 align-center">Vehicle Chassis No.</label>
+                                          </div>
+                                          <div class="col-sm-9">
+                                             <input type="chassis" class="form-control ih-medium ip-gray radius-xs b-light px-15" 
+                                             name="chassis" placeholder="<%= traffic.chassis %>">
+                                          </div>
+                                       </div>
+                                 <% } else if (dask) { %>
+                                    <div class="form-group row mb-25">
+                                       <div class="col-sm-3 d-flex aling-items-center">
+                                          <label for="deed" class="col-form-label color-dark fs-14 fw-500 align-center">Deed No.</label>
+                                       </div>
+                                       <div class="col-sm-9">
+                                          <input type="deed" class="form-control ih-medium ip-gray radius-xs b-light px-15" 
+                                          name="deed" placeholder="<%= dask.deed %>">
+                                       </div>
+                                    </div>
+                                    <div class="form-group row mb-25">
+                                       <div class="col-sm-3 d-flex aling-items-center">
+                                          <label for="address" class="col-form-label color-dark fs-14 fw-500 align-center">Address</label>
+                                       </div>
+                                       <div class="col-sm-9">
+                                          <input type="address" class="form-control ih-medium ip-gray radius-xs b-light px-15" 
+                                          name="address" placeholder="<%= dask.address %>">
+                                       </div>
+                                    </div>
+                                    <% } else if (property) { %>
+                                       <div class="form-group row mb-25">
+                                          <div class="col-sm-3 d-flex aling-items-center">
+                                             <label for="deed" class="col-form-label color-dark fs-14 fw-500 align-center">Deed No.</label>
+                                          </div>
+                                          <div class="col-sm-9">
+                                             <input type="deed" class="form-control ih-medium ip-gray radius-xs b-light px-15" 
+                                             name="deed" placeholder="<%= property.deed %>">
+                                          </div>
+                                       </div>
+                                       <div class="form-group row mb-25">
+                                          <div class="col-sm-3 d-flex aling-items-center">
+                                             <label for="address" class="col-form-label color-dark fs-14 fw-500 align-center">Address</label>
+                                          </div>
+                                          <div class="col-sm-9">
+                                             <input type="address" class="form-control ih-medium ip-gray radius-xs b-light px-15" 
+                                             name="address" placeholder="<%= property.address %>">
+                                          </div>
+                                       </div>
+                                 <% } else if(health){ %>
+                                    <div class="form-group row mb-25">
+                                       <div class="col-sm-3 d-flex aling-items-center">
+                                          <label for="sgk" class="col-form-label color-dark fs-14 fw-500 align-center">SGK No.</label>
+                                       </div>
+                                       <div class="col-sm-9">
+                                          <input type="sgk" class="form-control ih-medium ip-gray radius-xs b-light px-15" 
+                                          name="sgk" placeholder="<%= health.sgk %>">
+                                       </div>
+                                    </div>
+                                 <% } else if(other){ %>
+                                    <div class="form-group row mb-25">
+                                       <div class="col-sm-3 d-flex aling-items-center">
+                                          <label for="invoice" class="col-form-label color-dark fs-14 fw-500 align-center">Invoice No.</label>
+                                       </div>
+                                       <div class="col-sm-9">
+                                          <input type="invoice" class="form-control ih-medium ip-gray radius-xs b-light px-15" 
+                                          name="invoice" placeholder="<%= other.invoice %>">
+                                       </div>
+                                    </div>
+                                    <div class="form-group row mb-25">
+                                       <div class="col-sm-3 d-flex aling-items-center">
+                                          <label for="order" class="col-form-label color-dark fs-14 fw-500 align-center">Order No.</label>
+                                       </div>
+                                       <div class="col-sm-9">
+                                          <input type="order" class="form-control ih-medium ip-gray radius-xs b-light px-15" 
+                                          name="order" placeholder="<%= other.order %>">
+                                       </div>
+                                    </div>
+                                 <% } %>
+                                 <div class="form-group row mb-25">
+                                    <div class="col-sm-3 d-flex aling-items-center">
+                                       <label for="price" class="col-form-label color-dark fs-14 fw-500 align-center">Price</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                       <input type="price" class="form-control ih-medium ip-gray radius-xs b-light px-15" 
+                                       name="price" placeholder="<%= policy.totalPrice %>">
+                                    </div>
+                                 </div>
+                                    <div class="form-group row mb-0">
+                                       <div class="layout-button mt-25">
+                                          <button type="submit" class="btn btn-primary btn-default btn-squared px-30">Update</button>
+                                       </div>
+                                    </div>
+                                 </form>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+               </div>
+            </div>
+         </div>
+      <%- include('../partials/modal') %>
+      <%- include('../partials/footer') %>
+   </main>
+   <%- include('../partials/script') %>
+</body>
+</html>

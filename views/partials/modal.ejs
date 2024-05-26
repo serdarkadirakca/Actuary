@@ -1,0 +1,106 @@
+<!-- modals -->
+
+<div class="modal-info-confirmed modal fade show" id="modal-profile" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-info" role="document">
+       <div class="modal-content">
+          <button data-bs-dismiss="modal" 
+          style="margin-left: 94%; border: 0; background-color: white;">x</button>
+          <div class="modal-body">
+             
+             <div class="ap-nameAddress ">
+                <h5 class="ap-nameAddress__subTitle fs-14 m-0"><b>Serdar Kadir Akça</b></h5>
+                <img style="position:relative;" class="rounded-circle" src="static/img/author/profile.png" alt="profile">
+                <p class="ap-nameAddress__subTitle fs-14 m-0">System Admin</p>     
+                <p class="ap-nameAddress__subTitle fs-14 m-0"><i>Actuary Insurance</i></p>    
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+
+
+ <div class="modal-info-confirmed modal fade show" id="modal-signout" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-info" role="document">
+       <div class="modal-content">
+          <div class="modal-body">
+             <div class="modal-info-body d-flex">
+                <div class="modal-info-text">
+                   <h6>Do you want to sign out?</h6>
+                </div>
+             </div>
+          </div>
+          <div class="modal-footer">
+             <a href="/signout"><button type="button" class="btn btn-new btn-sm" data-bs-dismiss="modal">Yes</button></a>
+             <button type="button" class="btn btn-new btn-sm" data-bs-dismiss="modal">No</button>
+          </div>
+       </div>
+    </div>
+ </div>
+
+
+ <div class="modal fade profile " id="profile" role="dialog" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content radius-xl">
+         <div class="modal-header">
+            <h6 class="modal-title fw-500" id="staticBackdropLabel">Profile</h6>
+            <button type="button" class="close shadow-none border-0 bg-transparent" data-bs-dismiss="modal" aria-label="Close">
+               <img src="static/img/svg/x.svg" alt="x" class="svg">
+            </button>
+         </div>
+         <div class="modal-body">
+            <div class="add-new-contact">
+                  <div class="account-profile d-flex align-items-center mb-4">
+                     <div class="ap-img pro_img_wrapper">
+                        <input id="file-upload" type="file" name="fileUpload" class="d-none">
+                        <!-- Profile picture image-->
+                        <label for="file-upload">
+                           <img class="ap-img__main rounded-circle wh-120 bg-lighter d-flex" src="static/img/author/profile.png" alt="profile">
+                           <span class="cross" id="remove_pro_pic">
+                              <img src="static/img/svg/camera.svg" alt="camera" class="svg">
+                           </span>
+                        </label>
+                     </div>
+                  </div>
+               <form method="post">
+                  <div class="form-group mb-20">
+                     <label>Name:</label>
+                     <input type="name" class="form-control form-control-lg" placeholder="Ahmet Yılmaz">
+                  </div>
+                  <div class="form-group mb-20">
+                     <label>Email:</label>
+                     <input type="email" class="form-control form-control-lg" placeholder="ayilmaz96@gmail.com">
+                  </div>
+                  <div class="form-group mb-20">
+                     <label>Password</label>
+                     <input type="password" class="form-control form-control-lg" placeholder="********">
+                  </div>
+                  <div class="form-group mb-25">
+                     <label for="agency">
+                        Agency
+                     </label>
+                     <select class="js-example-basic-single js-states form-control" id="agency">
+                        <option value="umraniye">Ümraniye Agency</option>
+                        <option value="uskudar">Üsküdar Agency</option>
+                        <option value="maltepe">Maltepe Agency</option>
+                        <option value="sancaktepe">Sancaktepe Agency</option>
+                     </select>
+                  </div>
+                  <div class="form-group mb-25">
+                     <label for="position">
+                        Position
+                     </label>
+                     <select class="js-example-basic-single js-states form-control" id="position">
+                        <option value="uskudar">Agency Manager</option>
+                        <option value="umraniye">Insurer</option>
+                        <option value="maltepe">Secretary</option>
+                     </select>
+                  </div>
+                  <div class="button-group d-flex pt-20">
+                     <button class="btn btn-primary btn-default btn-squared">Update</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
